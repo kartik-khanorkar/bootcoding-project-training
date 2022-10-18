@@ -1,6 +1,7 @@
 package com.online.restaurant;
 
 public class vendor {
+    private String vendorId;
     private String name;
     private String address;
     private String emailId;
@@ -10,6 +11,14 @@ public class vendor {
     private Boolean pureveg;
     private String category;
     private String rating;
+
+    public String getVendorId() {
+        return vendorId;
+    }
+
+    public void setVendorId(String vendorId) {
+        this.vendorId = vendorId;
+    }
 
     public String getName() {
         return name;
@@ -81,8 +90,5 @@ public class vendor {
 
     public void setRating(String rating) {
         this.rating = rating;
-    }
-
-    public void setRating(double v) {
     }
 }

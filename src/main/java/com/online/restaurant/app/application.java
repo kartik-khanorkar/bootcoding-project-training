@@ -2,6 +2,9 @@ package com.online.restaurant.app;
 
 import com.online.restaurant.customer;
 
+import com.online.restaurant.dao.CustomerDAO;
+import com.online.restaurant.dao.OrderDAO;
+import com.online.restaurant.dao.OrderMenuItemDAO;
 import com.online.restaurant.vendor;
 
 import com.online.restaurant.order;
@@ -52,6 +55,18 @@ public class application {
         System.out.println("Order Details:");
         System.out.println("Total Amount:"+order.getTotalAmount());
         System.out.println("Order Date:"+order.getOrderDate());
+
+        CustomerDAO customerDAO = new CustomerDAO();
+        customerDAO.creatTable();
+
+        OrderDAO orderDAO = new OrderDAO();
+        orderDAO.creatTable();
+
+        OrderMenuItemDAO orderMenuItemDAO = new OrderMenuItemDAO();
+        orderMenuItemDAO.creatTable();
+
+
+
 
     }
 }
