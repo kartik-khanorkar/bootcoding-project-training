@@ -5,6 +5,7 @@ import com.online.restaurant.customer;
 import com.online.restaurant.dao.CustomerDAO;
 import com.online.restaurant.dao.OrderDAO;
 import com.online.restaurant.dao.OrderMenuItemDAO;
+import com.online.restaurant.dao.VendorDAO;
 import com.online.restaurant.vendor;
 
 import com.online.restaurant.order;
@@ -64,6 +65,9 @@ public class application {
 
         OrderMenuItemDAO orderMenuItemDAO = new OrderMenuItemDAO();
         orderMenuItemDAO.creatTable();
+
+        VendorDAO vendorDAO = new VendorDAO();
+        vendorDAO.creatTable();
 
 
 
