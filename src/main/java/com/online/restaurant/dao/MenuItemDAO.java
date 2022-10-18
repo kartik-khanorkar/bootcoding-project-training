@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class CustomerDAO {
-    public static final String TABLE_NAME ="app_customer";
+public class MenuItemDAO {
+    public static final String TABLE_NAME ="app_menu_item";
     public void creatTable(){
         try{
             Class.forName("org.postgresql.Driver");
@@ -16,22 +16,22 @@ public class CustomerDAO {
 
             String query = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME
                     + " ( id bigint NOT NULL ,"
-                    + " name text ,"
-                    + " address text ,"
-                    + " phone_number bigint ,"
-                    + " city text ,"
-                    + " state text ,"
-                    + " email_id text ,"
-                    + "CONSTRAINT app_customer_pk PRIMARY KEY (id))";
+                    + " vendor_id bigint ,"
+                    + " menu_item_name text ,"
+                    + " price decimal ,"
+                    + " category text ,"
+                    + " is_veg bool ,"
+                    + "CONSTRAINT app_menu_item_pk PRIMARY KEY (id))";
             System.out.println("Create Table Query : " + query);
             stmt.executeUpdate(query);
 
+
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()){
-                System.out.println("Name"+rs.getString("name"));
-                System.out.println("Address"+rs.getString("address"));
-                System.out.println("Phone"+rs.getString("phone_number"));
-                System.out.println("City"+rs.getString("city"));
+                System.out.println("Id"+rs.getString("id"));
+                System.out.println("TotalAmount"+rs.getString("total_amount"));
+                System.out.println("Date"+rs.getString("order_date"));
+                System.out.println("Address"+rs.getString("delivery_address"));
 
             }
         }catch(Exception ex){
