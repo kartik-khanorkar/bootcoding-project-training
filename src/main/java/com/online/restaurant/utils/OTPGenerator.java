@@ -3,12 +3,10 @@ package com.online.restaurant.utils;
 import java.util.Random;
 
 public class OTPGenerator {
-    public static int getOTP(){
         final static int MAX = 999999;
         final static int MIN = 100000;
-
         static Random random = new Random();
-
+    public static int getOTP(){
         int number = random.nextInt(MAX - MIN);
         int otp = MIN + number;
 
