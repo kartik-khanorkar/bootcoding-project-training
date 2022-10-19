@@ -7,10 +7,14 @@ import java.sql.Statement;
 
 public class CustomerDAO {
     public static final String TABLE_NAME ="app_customer";
+    private DAOService daoService;
+    public CustomerDAO(){
+        //Inside Constructore
+        daoService = new DAOService();
+    }
     public void creatTable(){
         try{
-            Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","Kart@321");
+            Connection con = daoService.getConnection();
             Statement stmt = con.createStatement();
             String sql = "Select * from " + TABLE_NAME;
 

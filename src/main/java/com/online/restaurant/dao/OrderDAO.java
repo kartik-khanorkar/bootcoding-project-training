@@ -6,11 +6,17 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class OrderDAO {
-    public static final String TABLE_NAME ="app_order";
-    public void creatTable(){
-        try{
-            Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","Kart@321");
+    public static final String TABLE_NAME = "app_order";
+    private DAOService daoService;
+
+    public OrderDAO() {
+        //Inside Constructore
+        daoService = new DAOService();
+    }
+
+    public void creatTable() {
+        try {
+            Connection con = daoService.getConnection();
             Statement stmt = con.createStatement();
             String sql = "Select * from " + TABLE_NAME;
 
@@ -29,14 +35,14 @@ public class OrderDAO {
 
 
             ResultSet rs = stmt.executeQuery(sql);
-            while(rs.next()){
-                System.out.println("Id"+rs.getString("id"));
-                System.out.println("TotalAmount"+rs.getString("total_amount"));
-                System.out.println("Date"+rs.getString("order_date"));
-                System.out.println("Address"+rs.getString("delivery_address"));
+            while (rs.next()) {
+                System.out.println("Id" + rs.getString("id"));
+                System.out.println("TotalAmount" + rs.getString("total_amount"));
+                System.out.println("Date" + rs.getString("order_date"));
+                System.out.println("Address" + rs.getString("delivery_address"));
 
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }

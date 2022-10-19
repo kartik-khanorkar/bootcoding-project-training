@@ -7,10 +7,14 @@ import java.sql.Statement;
 
 public class VendorDAO {
     public static final String TABLE_NAME ="app_vendor";
+    private DAOService daoService;
+    public VendorDAO () {
+        //Inside Constructore
+        daoService = new DAOService();
+    }
     public void creatTable(){
         try{
-            Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","Kart@321");
+            Connection con = daoService.getConnection();
             Statement stmt = con.createStatement();
             String sql = "Select * from " + TABLE_NAME;
             String query = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME

@@ -9,7 +9,6 @@ public class MenuItemDAO {
     public static final String TABLE_NAME ="app_menu_item";
     public void creatTable(){
         try{
-            Class.forName("org.postgresql.Driver");
             Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","Kart@321");
             Statement stmt = con.createStatement();
             String sql = "Select * from " + TABLE_NAME;
