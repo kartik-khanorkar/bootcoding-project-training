@@ -15,7 +15,6 @@ public class OrderMenuItemDAO {
     public void creatTable(){
         try{
             Connection con = daoService.getConnection();
-
             Statement stmt = con.createStatement();
             String sql = "Select * from " + TABLE_NAME;
 

@@ -9,7 +9,6 @@ public class OTPGenerator {
     public static int getOTP(){
         int number = random.nextInt(MAX - MIN);
         int otp = MIN + number;
-
         System.out.println("OTP Number = " + number);
         return number;
     }

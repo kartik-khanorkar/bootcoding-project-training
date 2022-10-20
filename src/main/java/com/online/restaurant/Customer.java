@@ -1,22 +1,25 @@
 package com.online.restaurant;
 
-public class customer {
-    private String customerId;
+public class Customer {
+    private long customerId;
     private String name;
     private String address;
-    private Long phoneNumber;
+    private long phoneNumber;
     private String city;
     private String state;
     private String emailId;
 
-    public String getCustomerId() {
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public long getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(long customerId) {
         this.customerId = customerId;
     }
-
     public String getName() {
         return name;
     }

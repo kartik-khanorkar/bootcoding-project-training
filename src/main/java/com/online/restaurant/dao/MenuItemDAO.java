@@ -7,9 +7,14 @@ import java.sql.Statement;
 
 public class MenuItemDAO {
     public static final String TABLE_NAME ="app_menu_item";
+    private DAOService daoService;
+    public MenuItemDAO(){
+        //Inside Constructore
+        daoService = new DAOService();
+    }
     public void creatTable(){
         try{
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","Kart@321");
+            Connection con = daoService.getConnection();
             Statement stmt = con.createStatement();
             String sql = "Select * from " + TABLE_NAME;
 

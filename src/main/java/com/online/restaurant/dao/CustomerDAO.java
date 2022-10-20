@@ -1,9 +1,8 @@
 package com.online.restaurant.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import com.online.restaurant.Customer;
+
+import java.sql.*;
 
 public class CustomerDAO {
     public static final String TABLE_NAME ="app_customer";
@@ -11,6 +10,25 @@ public class CustomerDAO {
     public CustomerDAO(){
         //Inside Constructore
         daoService = new DAOService();
+    }
+    public void insertCustomer(Customer customer){
+        try{
+            Connection con = daoService.getConnection();
+            String sql = "INSERT INTO " + TABLE_NAME + " VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setLong(1, customer.getCustomerId());
+            ps.setString(2, customer.getName());
+            ps.setString(3, customer.getAddress());
+            ps.setLong(4, customer.getPhoneNumber());
+            ps.setString(5, customer.getCity());
+            ps.setString(6, customer.getState());
+            ps.setString(7, customer.getEmailId());
+            ps.executeUpdate();
+            con.close();
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
     public void creatTable(){
         try{

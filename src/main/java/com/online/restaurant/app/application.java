@@ -1,18 +1,19 @@
 package com.online.restaurant.app;
 
-import com.online.restaurant.customer;
+import com.online.restaurant.Customer;
 
 import com.online.restaurant.dao.*;
-import com.online.restaurant.vendor;
+import com.online.restaurant.Vendor;
 
-import com.online.restaurant.order;
+import com.online.restaurant.Order;
+import com.online.restaurant.service.CustomerService;
 
 import java.util.Date;
 
 public class application {
 
     public static void main(String[]args){
-        customer kartik = new customer();
+        Customer kartik = new Customer();
         kartik.setName("Kartik");
         kartik.setCity("Nagpur");
         kartik.setAddress("New nandanwan,Nagpur");
@@ -26,7 +27,7 @@ public class application {
         System.out.println("EmailId:"+kartik.getEmailId());
         System.out.println("Phone No:"+kartik.getPhoneNumber());
 
-        vendor haldiram = new vendor();
+        Vendor haldiram = new Vendor();
         haldiram.setName("Haldiram Veg Restaurant");
         haldiram.setAddress("Ajni sqare, Nagpur");
         haldiram.setCategory("Veg");
@@ -43,7 +44,7 @@ public class application {
         System.out.println("State:"+haldiram.getState());
         System.out.println("City:"+haldiram.getCity());
 
-        order order = new order();
+        Order order = new Order();
         order.setCustomer(kartik);
         order.setVendor(haldiram);
         order.setTotalAmount(999.00);
@@ -68,6 +69,9 @@ public class application {
 
         OrderMenuItemDAO orderMenuItemDAO = new OrderMenuItemDAO();
         orderMenuItemDAO.creatTable();
+
+        CustomerService cs = new CustomerService();
+        cs.creatDummyCustomers();
 
 
     }

@@ -1,6 +1,6 @@
 package com.online.restaurant;
 
-public class vendor {
+public class Vendor {
     private String vendorId;
     private String name;
     private String address;

@@ -3,11 +3,11 @@ package com.online.restaurant;
 import java.util.Date;
 import java.util.List;
 
-public class order {
+public class Order {
     private String orderId;
     private Double totalAmount;
-    private vendor vendor;
-    private customer customer;
+    private Vendor vendor;
+    private Customer customer;
     private String deliveryAddress;
     private List<OrderMenuItem>menuItems;
     private Date orderDate;
@@ -29,19 +29,19 @@ public class order {
         this.totalAmount = totalAmount;
     }
 
-    public com.online.restaurant.vendor getVendor() {
+    public Vendor getVendor() {
         return vendor;
     }
 
-    public void setVendor(com.online.restaurant.vendor vendor) {
+    public void setVendor(Vendor vendor) {
         this.vendor = vendor;
     }
 
-    public com.online.restaurant.customer getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(com.online.restaurant.customer customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
